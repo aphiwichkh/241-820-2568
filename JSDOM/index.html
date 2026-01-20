@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<!--// java events 
+onclick
+onchange
+onkeyup
+onkeydown
+onkeypress
+selectDom
+onmouseover
+onmousedown
+onmouseup
+
+<body>
+    <button onclick="userClicked()" > คลิก !!</button>
+    <div onclick="divClicked()"> คลิก Div </div> -->
+<!--งานอดิเรก
+<input type= "checkbox" name="hobby" value="reading"> Reading
+<input type= "checkbox" name="hobby" value="traveling"> Traveling
+<input type= "checkbox" name="hobby" value="gaming"> Gaming -->
+<input type="radio" name="gender" value="male" onchange="changeGender()" checked = "true"> male
+<input type="radio" name="gender" value="female" onchange="changeGender()"> Female
+
+   <script >
+       function userClicked() {
+            console.log ("User clicked the button") ;
+        }
+        function divClicked() {
+            console.log("User clicked the div")
+        } 
+        let checkboxInputs = document.querySelectorAll('input[name=hobby]');
+        for (let i = 0; i <checkboxInputs.length ; i++) {
+            console.log (checkboxInputs[i].value); 
+   } 
+        function changeGender(){
+            // เลือก gender ทุก input ออกมา
+            let genderInputs = document.querySelectAll('input[name="gender"]') ;
+
+
+            // ใคร checked อยู่ = เพศโดนเลือกอยู่
+            for (let i = 0 ; i < genderInputs.length; i++) {
+                if (genderInputs[i].length); {
+                    console.log("Gender selected : "+ genderInputs[i].value) ;
+                }
+            }
+            console.log("Gender  changed") ;
+        }
+        
+    </script>
+    
+</body>
+</html>
