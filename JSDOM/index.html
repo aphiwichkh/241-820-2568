@@ -15,19 +15,82 @@ onkeypress
 selectDom
 onmouseover
 onmousedown
-onmouseup
+onmouseup -->
 
 <body>
+  <!--  <ul>
+        <li> อ่านหนังสือ </li>
+        <li> ว่ายน้ำ </li>
+        <li> เล่นเกม </li> -->
+    <h1>งานอดิเรก</h1>
+    <div id="content"></div> 
+ <input type="checkbox" name="hobby" value="reading"> อ่านหนังสือ 
+ <input type="checkbox" name="hobby" value="swimming" > ว่ายน้ำ
+ <input type="checkbox" name="hobby" value="gaming" > เล่นเกม
+ <button onclick="subitHobby()" > Submit   </button>
+    <!--<div id="hi"> Hi<span style="display: none ;">A</span> </div> -->
+ <!--   <div onmouseover="OverItem()" 
+    onmouseup="UpItem()"
+    onmousedown="DownItem()"
+    > Cick</div> 
+    
     <button onclick="userClicked()" > คลิก !!</button>
     <div onclick="divClicked()"> คลิก Div </div> -->
 <!--งานอดิเรก
 <input type= "checkbox" name="hobby" value="reading"> Reading
 <input type= "checkbox" name="hobby" value="traveling"> Traveling
 <input type= "checkbox" name="hobby" value="gaming"> Gaming -->
-<input type="radio" name="gender" value="male" onchange="changeGender()" checked = "true"> male
-<input type="radio" name="gender" value="female" onchange="changeGender()"> Female
+<!--<input type="radio" name="gender" value="male" onchange="changeGender()" checked = "true"> male
+<input type="radio" name="gender" value="female" onchange="changeGender()"> Female  -->
+<!--ชื่อ : <input type="text" name="fname" onkeydown="changeFname()"/> -->
+
 
    <script >
+       function subitHobby() {
+        // เลือก ไป checkbox ที่มี name เป็น hobby ทั้งหมด
+        let hobbies = document.querySelectorAll('input[name="hobby"]') ;
+        let contentHtml = '<ul>' ;
+        // เอาค่าที่เลือก ออกมา
+        for (let i = 0 ; i < hobbies.length ; i++) {
+            if (hobbies[i].checked) {
+                contentHtml += '<li>' + hobbies[i].value + '</li>' ;    
+            }
+        }
+        // วนค่าที่เลือก มาแสดงในรูปแบบ ul li 
+        contentHtml += '</ul>' ;
+        // ใส่ Html ลงใน div id content
+        let contentDiv = document.getElementById('content') ;
+        contentDiv.innerHTML = contentHtml ;
+        }
+   /* let hiDom = document.getElementById("hi") ;
+    hiDom.innerHTML= "Hi<b>B</b> " ;
+    console.log(hiDom.textContent) ;
+    console.log(hiDom.innerText) ;
+    console.log(hiDom.innerHTML) ; */
+   /*function OverItem() {
+        console.log("Mouse over event detected") ;
+    }
+    function UpItem() {
+        console.log("Mouse up event detected") ;
+    }
+    function DownItem() {
+        console.log("Mouse down event detected") ;
+    } */
+    
+    
+
+    //onkeydown กดปุ่มคีย์บอร์ด
+    //onkeyup ปล่อยปุ่มคีย์บอร์ด
+    //onkeypress กดปุ่มคีย์บอร์ดค้างไว้
+      /*function changeFname() {
+        console.log("Key down evwnt detected") ;
+        // เลือก input element 
+        let inputElement = document.querySelector('input[name=fname]') ;
+        // ตั้งค่า value
+        console.log (inputElement.value) ;
+    }
+        let fnameInput = document.querySelector('input[name=fname]') ;
+        console.log("First name changed : " + fnameInput.value) ;
        function userClicked() {
             console.log ("User clicked the button") ;
         }
@@ -49,9 +112,8 @@ onmouseup
                     console.log("Gender selected : "+ genderInputs[i].value) ;
                 }
             }
-            console.log("Gender  changed") ;
-        }
-        
+            console.log("Gender  changed") ; 
+   } */     
     </script>
     
 </body>
