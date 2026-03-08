@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   db:
-    image: mysql:8.0 #ปรับเป็น MySQL 8.0 เพื่อความทันสมัย (หรือใช้ 5.7 ตามเดิมได้หากต้อง)
+    image: mysql:8.0 #ปรับเป็น Mysql 8.0  เพื่อความทันสมัย หรือใช้ 5.7 ก็ได้
     container_name: mysql_db_820
-    # MySQL 8.0 ใช้ Plugin ตัวใหม่ จึงต้องใช้คำสั่งนี้เพื่อให้เข้ากับ Client รุ่นเก่าได้ดีขึ้น
+    #Mysql 8.0 ใช้ plugin ตัวใหม่ จึงต้องใช้คำสั่งเพื่อให้เข้ากับ client ตัวเก่า 
     command: --default-authentication-plugin=mysql_native_password
-    environment: 
+    environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: webdb
     ports:
@@ -16,18 +16,18 @@ services:
     networks:
       - weblab820
     restart: always
-  
+
   phpmyadmin:
     image: phpmyadmin:latest
     container_name: phpmyadmin_820
     environment:
-      PMA_HOST: db # ใช้ชื่อ Service "db" แทนชื่อ Container เพื่อความยืดหยุ่นในระบบ Network
+      PMA_HOST: db #ใช้ Service "db" แทน container เพื่อความยืดยุ่นในระบบ Network
       PMA_PORT: 3306
-      PMA_USER: root
+      PMA USER: root
       PMA_PASSWORD: root
-      UPLOAD_LIMIT: 64M # เพิ่มลิมิตการอัปโหลดไฟล์ SQL
+      UPLOAD_LIMIT: 64M   #เพิ่มลิมิตการอัพโหลด SQL
     ports:
-      - "8830:80"
+      - "8030:80"
     depends_on:
       - db
     networks:
@@ -37,7 +37,7 @@ services:
 networks:
   weblab820:
     driver: bridge
-
+    
 volumes:
   mysql_data_820:
     driver: local
