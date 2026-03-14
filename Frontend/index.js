@@ -65,10 +65,10 @@ const submitData = async () => {
         console.log('error message', error.message);
         console.log('error', error.errors);
         if (error.response) {
-            console.log('error response', error.response);
-            error.message = error.response.data.message;
-            error.errors = error.response.data.errors;
-
+            console.log('error response:', error.response);
+            errorMessage = error.response.data.message;
+            errorerrors = error.response.data.errors;
+            
         }
 
         let htmlData = '<div>'
