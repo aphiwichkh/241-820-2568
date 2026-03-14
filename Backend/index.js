@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const app = express();
-const port = 8000;
 const cors = require('cors');
+const port = 8000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -68,8 +68,8 @@ app.post('/users', async (req, res) => {
             data: results[0]
         })
     } catch (error) {
-        const errormessage = error.message || 'Error creating user';
-        const errors = error.errors
+        const errorMessage = error.message || 'Error creating user';
+        const errors = error.errors || [];
         console.error('Error creating user:', error.message);
         res.status(500).json({
             message: errorMessage,
